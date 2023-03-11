@@ -3,5 +3,6 @@ package enums;
 public enum OperationType {
     ADDITION,
     MULTIPLICATION,
-    TRANSPOSITION
+    TRANSPOSITION,
+    DETERMINANT
 }

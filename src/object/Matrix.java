@@ -1,25 +1,34 @@
 package object;
 
 public class Matrix {
-    private int rows;
-    private int columns;
+    private final int rows;
+    private final int columns;
 
-    private double [][] matrix;
+    private final double [][] matrix;
+
+    public Matrix(int rows, int columns, double [][] mat) {
+        this.rows = rows;
+        this.columns = columns;
+        this.matrix = mat;
+    }
 
     public Matrix(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
         this.matrix = new double[rows][columns];
     }
-    public void printMatrix() {
-        for(int i = 0; i < rows; i++) {
-            for(int j = 0; j < columns; j++) {
-                System.out.print(matrix[i][j]);
+    public static void printMatrix(Matrix matrix) {
+        for(int i = 0; i < matrix.getRows(); i++) {
+            for(int j = 0; j < matrix.getColumns(); j++) {
+                System.out.print(matrix.getMatrix()[i][j]);
+                System.out.print(" ");
             }
             System.out.println();
         }
     }
-
+    public static int[] calculateResultMatrixSize(Matrix matrix1, Matrix matrix2) {
+        return new int[]{matrix1.getRows(), matrix2.getColumns()};
+    }
     public int getRows() {
         return rows;
     }
@@ -31,4 +40,5 @@ public class Matrix {
     public double[][] getMatrix() {
         return matrix;
     }
+
 }
